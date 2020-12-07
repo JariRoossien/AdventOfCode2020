@@ -1,5 +1,5 @@
 # AdventOfCode2020
-My solutions to AdventOfCode 2020 edition
+My solutions to AdventOfCode 2020 edition. [Link to 2020 Advent of Code.](https://adventofcode.com/2020)
 
 ## Current Output:
 ```
@@ -20,4 +20,7 @@ Day 5 challenge 2: 603
 
 Day 6 challenge 1: 6947
 Day 6 challenge 2: 3398
+
+Day 7 challenge 1: 172
+Day 7 challenge 2: 39645
 ```
