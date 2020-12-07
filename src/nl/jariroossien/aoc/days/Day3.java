@@ -62,7 +62,7 @@ public class Day3 implements Challenge {
             row += down;
         }
 
-        System.out.println(encountered);
+
         return encountered;
 
     }
