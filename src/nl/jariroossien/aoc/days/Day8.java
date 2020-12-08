@@ -19,9 +19,13 @@ public class Day8 implements Challenge {
         int counter = 0;
         for (int i = 0; i < actions.size(); i++) {
             Line actionLine = actions.get(i);
+
+            //If the line has already been executed once, stop the loop and return the current value.
             if (executedActions.contains(actionLine)) {
                 return counter;
             }
+
+            //Perform actions based on String
             if (actionLine.getAction().equals("acc")) {
                 counter += actionLine.getAmount();
             } else if (actionLine.getAction().equals("jmp")) {
@@ -35,16 +39,21 @@ public class Day8 implements Challenge {
 
     @Override
     public long solveTwo() {
-        executedActions.clear();
+        //Only loop through the lines that have jmp or nop.
         List<Line> changedLines = actions.stream().filter(action -> action.getAction().equals("jmp") || action.getAction().equals("nop")).collect(Collectors.toList());
 
         for (Line changedLine : changedLines) {
             String oldAction = changedLine.getAction();
+
+            //Switch action of line.
             changedLine.setAction(changedLine.getAction().equalsIgnoreCase("jmp") ? "nop" : "jmp");
-            List<Line> copiedActions = List.copyOf(actions);
-            if (checkForInfiniteLoops(copiedActions)) {
-                return getTotalCount(copiedActions);
+
+            //Check for a loop and return if the program doesn't loop.
+            if (checkForInfiniteLoops(actions)) {
+                return getTotalCount(actions);
             }
+
+            //Reset action.
             changedLine.setAction(oldAction);
         }
 
@@ -100,7 +109,7 @@ public class Day8 implements Challenge {
         private final int id;
 
         private String action;
-        private int amount;
+        private final int amount;
 
         public Line(String action, int amount) {
             id = linecounter++;
@@ -110,10 +119,6 @@ public class Day8 implements Challenge {
 
         public int getAmount() {
             return amount;
-        }
-
-        public void setAmount(int amount) {
-            this.amount = amount;
         }
 
         @Override
@@ -135,10 +140,6 @@ public class Day8 implements Challenge {
 
         public void setAction(String action) {
             this.action = action;
-        }
-
-        public int getId() {
-            return id;
         }
 
         @Override
