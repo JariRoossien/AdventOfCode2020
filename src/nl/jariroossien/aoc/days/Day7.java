@@ -90,9 +90,9 @@ public class Day7 implements Challenge {
     }
 
     public Bag getBag(String s) {
-        if (Bag.currentBags.stream().anyMatch(bag -> bag.color.equals(s))) {
-            return Bag.currentBags.stream().filter(bag -> bag.color.equals(s)).findFirst().get();
-        }
+        final Optional<Bag> first = Bag.currentBags.stream().filter(bag -> bag.color.equals(s)).findFirst();
+        if (first.isPresent())
+            return first.get();
         Bag b = new Bag(s);
         Bag.currentBags.add(b);
         return b;
