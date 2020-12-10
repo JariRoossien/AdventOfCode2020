@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        for (int i = 1; i <= 9; i++) {
+        for (int i = 1; i <= 10; i++) {
             Challenge challenge = (Challenge) Class.forName("nl.jariroossien.aoc.days.Day" + i).getDeclaredConstructor().newInstance();
             challenge.setup();
             long timer = System.nanoTime();

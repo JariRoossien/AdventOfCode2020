@@ -33,7 +33,6 @@ public class Day9 implements Challenge {
                     if (numberSet.get(j) + numberSet.get(k) == numberSet.get(i)) {
                         break first;
                     }
-                    //If we are at the last number and there is still no combination, return the number
                 }
             }
         }
