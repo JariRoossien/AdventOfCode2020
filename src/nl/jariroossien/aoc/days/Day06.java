@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Day6 implements Challenge {
+public class Day06 implements Challenge {
 
     List<Group> groupList = new ArrayList<>();
 

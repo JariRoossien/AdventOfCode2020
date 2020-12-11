@@ -95,6 +95,8 @@ public class Day10 implements Challenge {
 
         return count;
     }
+
+
     @Override
     public void setup() {
         final File file = new File("input/day10.txt");
@@ -107,7 +109,6 @@ public class Day10 implements Challenge {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 }

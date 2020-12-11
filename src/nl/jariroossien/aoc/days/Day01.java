@@ -6,11 +6,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day1 implements Challenge {
+public class Day01 implements Challenge {
 
     List<Integer> numbers  = new ArrayList<>();
 
-    public Day1() {
+    public Day01() {
         setup();
     }
 

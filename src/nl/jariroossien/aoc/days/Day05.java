@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day5 implements Challenge {
+public class Day05 implements Challenge {
     int highestval = 0;
     List<Integer> seatIds = new ArrayList<>();
 

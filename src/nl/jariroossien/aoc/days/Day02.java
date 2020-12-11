@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day2 implements Challenge {
+public class Day02 implements Challenge {
     List<Password> passwords;
-    public Day2() {
+    public Day02() {
         setup();
     }
 

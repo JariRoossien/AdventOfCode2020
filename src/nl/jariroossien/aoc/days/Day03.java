@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day3 implements Challenge {
+public class Day03 implements Challenge {
 
     final static char TREE = '#';
     List<String> rows = new ArrayList<>();

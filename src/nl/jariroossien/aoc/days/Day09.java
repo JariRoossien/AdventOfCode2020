@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day9 implements Challenge {
+public class Day09 implements Challenge {
 
     final static int OFFSET = 25;
     List<Long> numberSet = new ArrayList<>();

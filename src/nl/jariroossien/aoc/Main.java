@@ -6,8 +6,16 @@ import java.lang.reflect.InvocationTargetException;
 public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        for (int i = 1; i <= 10; i++) {
-            Challenge challenge = (Challenge) Class.forName("nl.jariroossien.aoc.days.Day" + i).getDeclaredConstructor().newInstance();
+        for (int i = 1; i <= 11; i++) {
+
+            String dayNumber;
+            if (i <= 9) {
+                dayNumber = "0" + i;
+            } else {
+                dayNumber = String.valueOf(i);
+            }
+
+            Challenge challenge = (Challenge) Class.forName("nl.jariroossien.aoc.days.Day" + dayNumber).getDeclaredConstructor().newInstance();
             challenge.setup();
             long timer = System.nanoTime();
             long lOne = challenge.solveOne();

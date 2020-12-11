@@ -5,7 +5,7 @@ import nl.jariroossien.aoc.Challenge;
 import java.io.*;
 import java.util.*;
 
-public class Day7 implements Challenge {
+public class Day07 implements Challenge {
 
     @Override
     public long solveOne() {

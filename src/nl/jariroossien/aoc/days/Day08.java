@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Day8 implements Challenge {
+public class Day08 implements Challenge {
 
     private final List<Line> actions = new ArrayList<>();
     private final Set<Line> executedActions = new HashSet<>();
