@@ -35,4 +35,7 @@ Day 10 challenge 2: 18512297918464. solved in 0ms
 
 Day 11 challenge 1: 2265. solved in 45ms
 Day 11 challenge 2: 2045. solved in 59ms
+
+Day 12 challenge 1: 1133. solved in 0ms
+Day 12 challenge 2: 61053. solved in 0ms
 ```
