@@ -1,6 +1,5 @@
 package nl.jariroossien.aoc.days;
 
-import nl.jariroossien.aoc.Challenge;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day09 implements Challenge {
+public class Day09 extends Day {
 
     final static int OFFSET = 25;
     List<Long> numberSet = new ArrayList<>();
@@ -64,18 +63,9 @@ public class Day09 implements Challenge {
 
     @Override
     public void setup() {
-        final File file = new File("input/day9.txt");
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = in.readLine()) != null) {
-                //TODO Put line into a List.
+        super.setup();
+            for (String line : input) {
                 numberSet.add(Long.parseLong(line));
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
     }
 }

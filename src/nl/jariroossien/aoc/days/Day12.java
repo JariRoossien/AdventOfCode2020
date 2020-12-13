@@ -1,7 +1,5 @@
 package nl.jariroossien.aoc.days;
 
-import nl.jariroossien.aoc.Challenge;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -9,13 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day12 implements Challenge {
+public class Day12 extends Day {
     Boat b = new Boat();
-    List<String> directionSettings = new ArrayList<>();
+
 
     @Override
     public long solveOne() {
-        for (String s : directionSettings) {
+        for (String s : input) {
             b.move(s, false);
         }
 
@@ -25,24 +23,10 @@ public class Day12 implements Challenge {
     @Override
     public long solveTwo() {
         b = new Boat();
-        for (String s : directionSettings) {
+        for (String s : input) {
             b.move(s, true);
         }
         return Math.abs(b.coords[0]) + Math.abs(b.coords[1]);
-    }
-
-    @Override
-    public void setup() {
-        final File file = new File("input/day12.txt");
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = in.readLine()) != null) {
-                directionSettings.add(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private static class Boat {

@@ -1,11 +1,8 @@
 package nl.jariroossien.aoc.days;
 
-import nl.jariroossien.aoc.Challenge;
-
-import java.io.*;
 import java.util.*;
 
-public class Day07 implements Challenge {
+public class Day07 extends Day {
 
     @Override
     public long solveOne() {
@@ -61,31 +58,26 @@ public class Day07 implements Challenge {
 
     @Override
     public void setup() {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(new File("input/day7.txt")));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] array = line.split(" contain ");
-                String[] rule_colors = array[0].split(" ");
-                Bag ruleBag = getBag(rule_colors[0] + " " + rule_colors[1]);
+        super.setup();
+        for (String line : input) {
+            String[] array = line.split(" contain ");
+            String[] rule_colors = array[0].split(" ");
+            Bag ruleBag = getBag(rule_colors[0] + " " + rule_colors[1]);
 
-                String extra_info = array[1];
-                String[] containingBags = extra_info.substring(0, extra_info.length() - 1).split(", ");
-                for (String s : containingBags) {
-                    final String[] temp_bag_info = s.split(" ");
+            String extra_info = array[1];
+            String[] containingBags = extra_info.substring(0, extra_info.length() - 1).split(", ");
+            for (String s : containingBags) {
+                final String[] temp_bag_info = s.split(" ");
 
-                    // If it's no, there are no bags, we can continue to the next bag entry.
-                    if (temp_bag_info[0].equalsIgnoreCase("no")) {
-                        break;
-                    } else {
-                        int count = Integer.parseInt(temp_bag_info[0]);
-                        Bag other_bag = getBag(temp_bag_info[1] + " " + temp_bag_info[2]);
-                        ruleBag.canContain.put(other_bag, count);
-                    }
+                // If it's no, there are no bags, we can continue to the next bag entry.
+                if (temp_bag_info[0].equalsIgnoreCase("no")) {
+                    break;
+                } else {
+                    int count = Integer.parseInt(temp_bag_info[0]);
+                    Bag other_bag = getBag(temp_bag_info[1] + " " + temp_bag_info[2]);
+                    ruleBag.canContain.put(other_bag, count);
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

@@ -1,17 +1,11 @@
 package nl.jariroossien.aoc.days;
 
-import nl.jariroossien.aoc.Challenge;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class Day04 implements Challenge {
+public class Day04 extends Day {
 
     Set<Passport> passports = new HashSet<>();
 
@@ -27,30 +21,23 @@ public class Day04 implements Challenge {
 
     @Override
     public void setup() {
-        File file = new File("input/day4.txt");
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(file));
-            String line;
-            Map<String, String> tempMap = new HashMap<>();
-            while ((line = in.readLine()) != null) {
-                //Go to new passport if there's an empty line.
-                if (line.length() == 0) {
-                    passports.add(Passport.fromMap(Map.copyOf(tempMap)));
-                    tempMap.clear();
-                    continue;
-                }
-
-                for (String s : line.split(" ")) {
-                    String[] info = s.split(":");
-                    tempMap.put(info[0], info[1]);
-                }
+        super.setup();
+        Map<String, String> tempMap = new HashMap<>();
+        for (String line : input) {
+            //Go to new passport if there's an empty line.
+            if (line.length() == 0) {
+                passports.add(Passport.fromMap(Map.copyOf(tempMap)));
+                tempMap.clear();
+                continue;
             }
-            passports.add(Passport.fromMap(Map.copyOf(tempMap)));
-            tempMap.clear();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
+            for (String s : line.split(" ")) {
+                String[] info = s.split(":");
+                tempMap.put(info[0], info[1]);
+            }
+        }
+        passports.add(Passport.fromMap(Map.copyOf(tempMap)));
+        tempMap.clear();
     }
 
     public static class Passport {

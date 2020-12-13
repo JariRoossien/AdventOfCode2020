@@ -1,15 +1,9 @@
 package nl.jariroossien.aoc.days;
 
-import nl.jariroossien.aoc.Challenge;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Day08 implements Challenge {
+public class Day08 extends Day {
 
     private final List<Line> actions = new ArrayList<>();
     private final Set<Line> executedActions = new HashSet<>();
@@ -91,17 +85,10 @@ public class Day08 implements Challenge {
 
     @Override
     public void setup() {
-        final File file = new File("input/day8.txt");
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = in.readLine()) != null) {
-                actions.add(new Line(line.split(" ")[0], Integer.parseInt(line.split(" ")[1])));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        super.setup();
+        for (String line : input) {
+            actions.add(new Line(line.split(" ")[0], Integer.parseInt(line.split(" ")[1])));
         }
-
     }
 
     private static class Line {

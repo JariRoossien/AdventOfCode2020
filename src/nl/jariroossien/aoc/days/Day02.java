@@ -1,16 +1,11 @@
 package nl.jariroossien.aoc.days;
 
-import nl.jariroossien.aoc.Challenge;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day02 implements Challenge {
+public class Day02 extends Day {
     List<Password> passwords;
+
     public Day02() {
         setup();
     }
@@ -27,21 +22,16 @@ public class Day02 implements Challenge {
 
     @Override
     public void setup() {
-        final File file = new File("input/day2.txt");
+        super.setup();
         passwords = new ArrayList<>();
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = in.readLine()) != null) {
-                String[] lineArray = line.split(" ");
-                passwords.add(new Password(Integer.parseInt(lineArray[0].split("-")[0]),
-                        Integer.parseInt(lineArray[0].split("-")[1]),
-                        lineArray[1].charAt(0),
-                        lineArray[2])
-                );
-            }
-        } catch (IOException ignored) {}
-
+        for (String line : input) {
+            String[] lineArray = line.split(" ");
+            passwords.add(new Password(Integer.parseInt(lineArray[0].split("-")[0]),
+                    Integer.parseInt(lineArray[0].split("-")[1]),
+                    lineArray[1].charAt(0),
+                    lineArray[2])
+            );
+        }
     }
 
     private static class Password {

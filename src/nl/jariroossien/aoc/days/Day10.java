@@ -1,19 +1,17 @@
 package nl.jariroossien.aoc.days;
 
-import nl.jariroossien.aoc.Challenge;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.*;
-
-public class Day10 implements Challenge {
+public class Day10 extends Day {
 
     List<Long> longDataList = new ArrayList<>();
 
     // {1 size, 2 size, 3 size}
     int[] countingArray = {0, 0, 0};
+
     @Override
     public long solveOne() {
         longDataList.add(0L);
@@ -99,15 +97,9 @@ public class Day10 implements Challenge {
 
     @Override
     public void setup() {
-        final File file = new File("input/day10.txt");
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = in.readLine()) != null) {
-                longDataList.add(Long.valueOf(line));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        super.setup();
+        for (String line : input) {
+            longDataList.add(Long.valueOf(line));
         }
 
     }

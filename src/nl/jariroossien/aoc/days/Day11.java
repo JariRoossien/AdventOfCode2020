@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Day11 implements Challenge {
+public class Day11 extends Day {
 
     char[][] seatLayout;
 
@@ -153,22 +153,15 @@ public class Day11 implements Challenge {
 
     @Override
     public void setup() {
-        final File file = new File("input/day11.txt");
-        seatLayout = new char[97][90];
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(file));
-            String line;
+        super.setup();
+        seatLayout = new char[input.size()][input.get(0).length()];
             int counter = 0;
-            while ((line = in.readLine()) != null) {
+            for (String line : input) {
                 for (int i = 0; i < line.getBytes().length; i++) {
                     seatLayout[counter][i] = line.charAt(i);
                 }
                 counter++;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
-
 
 }

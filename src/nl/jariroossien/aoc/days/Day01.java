@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day01 implements Challenge {
+public class Day01 extends Day {
 
     List<Integer> numbers  = new ArrayList<>();
 
@@ -53,18 +53,12 @@ public class Day01 implements Challenge {
         return n1*n2*n3;
     }
 
+    @Override
     public void setup() {
-        final File file = new File("input/day1.txt");
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = in.readLine()) != null) {
-                numbers.add(Integer.parseInt(line));
-            }
-            numbers.sort(Integer::compareTo);
-        } catch (IOException e) {
-            e.printStackTrace();
+        super.setup();
+        for (String s : input) {
+            numbers.add(Integer.parseInt(s));
         }
-
+        numbers.sort(Integer::compareTo);
     }
 }
