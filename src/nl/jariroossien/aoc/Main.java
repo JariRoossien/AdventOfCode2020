@@ -1,12 +1,14 @@
 package nl.jariroossien.aoc;
 
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Objects;
 
 public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        for (int i = 1; i <= 13; i++) {
+        for (int i = 1; i <= Objects.requireNonNull(new File("input").listFiles()).length; i++) {
 
             String dayNumber;
             if (i <= 9) {
