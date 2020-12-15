@@ -38,4 +38,13 @@ Day 11 challenge 2: 2045. solved in 59ms
 
 Day 12 challenge 1: 1133. solved in 0ms
 Day 12 challenge 2: 61053. solved in 0ms
+
+Day 13 challenge 1: 3035. solved in 0ms
+Day 13 challenge 2: 725169163285238. solved in 6ms
+
+Day 14 challenge 1: 10717676595607. solved in 16ms
+Day 14 challenge 2: 3974538275659. solved in 463ms
+
+Day 15 challenge 1: 441. solved in 32ms
+Day 15 challenge 2: 10613991. solved in 9445ms
 ```
