@@ -25,7 +25,7 @@ public class Day15 extends Day {
 
     @Override
     public long solveTwo() {
-        Map<Integer, Integer> numbers = new HashMap<>(4000000);
+        Map<Integer, Integer> numbers = new HashMap<>(3700000);
         int[] lastNumbers = Arrays.stream(input.get(0).split(",")).mapToInt(Integer::parseInt).toArray();
         for (int i : lastNumbers) {
             numbers.put(i, numbers.size());
